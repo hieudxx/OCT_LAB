@@ -5,7 +5,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import hieudx.fpoly.myapplication.R
 
 class ForeGroundActivity : AppCompatActivity() {
@@ -15,16 +14,12 @@ class ForeGroundActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fore_ground)
 
         val btnStart: Button = findViewById(R.id.btnStart)
-        val btnStop: Button = findViewById(R.id.btnStop)
 
         btnStart.setOnClickListener {
 
             clickStartService()
         }
 
-        btnStop.setOnClickListener {
-            clickStopService()
-        }
     }
 
     private fun clickStartService() {
@@ -38,7 +33,4 @@ class ForeGroundActivity : AppCompatActivity() {
         }
     }
 
-    private fun clickStopService() {
-        stopService(Intent(this, ForeGrSerivce::class.java))
-    }
 }
