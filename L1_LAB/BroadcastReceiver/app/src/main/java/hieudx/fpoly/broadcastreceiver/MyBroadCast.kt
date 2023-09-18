@@ -24,7 +24,7 @@ class MyBroadCast : BroadcastReceiver() {
                 Toast.makeText(p0, "WiFi đã tắt", Toast.LENGTH_SHORT).show()
             }
         }
-
+//code này chỉ hoạt động từ android 7 trở xuống
 //            sau khi lắng nghe sẽ thông báo lại vào đây
 //        if (p1?.action.equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) {
 //            if (!isConnect(p0)) {
