@@ -26,9 +26,7 @@ class Activity1 : AppCompatActivity() {
                 bundle.putInt("id", edId.text.toString().toInt())
                 bundle.putString("name", edName.text.toString())
                 intent.putExtras(bundle)
-
                 startActivity(intent)
-
             } else {
                 Toast.makeText(this, "Hãy nhập đúng giá trị", Toast.LENGTH_SHORT).show()
             }
