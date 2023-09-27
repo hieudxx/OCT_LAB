@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainCourseFrag">
+
+    <fragment
+        android:id="@+id/detailOrderFrag"
+        android:name="hieudx.fpoly.speedfood.view.DetailOrderFrag"
+        android:label="@string/deltail_order_label"
+        tools:layout="@layout/fragment_detail_order">
+        <action
+            android:id="@+id/action_detailOrderFrag_to_mainCourseFrag"
+            app:destination="@id/mainCourseFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/beveragesFrag"
+        android:name="hieudx.fpoly.speedfood.view.BeveragesFrag"
+        android:label="@string/beverages_label"
+        tools:layout="@layout/fragment_beverages" >
+        <action
+            android:id="@+id/action_beveragesFrag_to_detailOrderFrag"
+            app:destination="@id/detailOrderFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/dessertFrag"
+        android:name="hieudx.fpoly.speedfood.view.DessertFrag"
+        android:label="@string/dessert_label"
+        tools:layout="@layout/fragment_dessert">
+        <action
+            android:id="@+id/action_dessertFrag_to_beveragesFrag"
+            app:destination="@id/beveragesFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainCourseFrag"
+        android:name="hieudx.fpoly.speedfood.view.MainCourseFrag"
+        android:label="@string/main_course_label"
+        tools:layout="@layout/fragment_main_course">
+        <action
+            android:id="@+id/action_mainCourseFrag_to_sideDishesFrag"
+            app:destination="@id/sideDishesFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/sideDishesFrag"
+        android:name="hieudx.fpoly.speedfood.view.SideDishesFrag"
+        android:label="@string/side_dishes_label"
+        tools:layout="@layout/fragment_side_dishes">
+        <action
+            android:id="@+id/action_sideDishesFrag_to_dessertFrag"
+            app:destination="@id/dessertFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="hieudx.fpoly.speedfood.view.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
