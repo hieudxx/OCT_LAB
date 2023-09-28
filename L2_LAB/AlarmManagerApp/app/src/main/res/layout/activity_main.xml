@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="1bc"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnSelectTime"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="Chọn giờ" />
+
+    <Button
+        android:id="@+id/btnSetAlarm"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="Cài báo thức" />
+
+    <Button
+        android:id="@+id/btnCancelAlarm"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="Hủy báo thức" />
+
+</LinearLayout>
