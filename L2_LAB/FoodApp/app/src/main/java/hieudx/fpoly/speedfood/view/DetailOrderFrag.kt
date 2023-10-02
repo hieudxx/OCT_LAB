@@ -32,9 +32,12 @@ class DetailOrderFrag : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        foodViewModel.isCheckFoods.observe(requireActivity()) {
-            adapter = FoodAdapter(it,foodViewModel)
-            binding.rcv.adapter = adapter
-        }
+        adapter = FoodAdapter(adapter.checkedList,foodViewModel)
+        binding.rcv.adapter = adapter
+
+//        foodViewModel.isCheckFoods.observe(requireActivity()) {
+//            adapter = FoodAdapter(it,foodViewModel)
+//            binding.rcv.adapter = adapter
+//        }
     }
 }

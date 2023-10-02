@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import hieudx.fpoly.speedfood.R
+import hieudx.fpoly.speedfood.model.Food
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +39,7 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -57,4 +59,20 @@ class ProfileFragment : Fragment() {
                 }
             }
     }
+
+
+//    fun updateFoodCheck(food: Food, isChecked: Boolean) {
+//
+//        val updatedList = foods.value?.toMutableList()
+//
+////        val index = foods.value?.indexOf(food)
+//        val index = updatedList?.indexOf(food)
+//
+//        if(index != null) {
+////            updatedList?.get(index)?.isCheck = isChecked
+//            updatedList[index].isCheck = isChecked
+//        }
+//        foods.postValue(updatedList as ArrayList<Food>?)
+//    }
+
 }

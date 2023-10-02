@@ -61,19 +61,17 @@ class MainActivity : AppCompatActivity() {
         binding.navBtn.addItem(item1)
         binding.navBtn.addItem(item2)
 
-        binding.navBtn.setOnTabSelectedListener(object : AHBottomNavigation.OnTabSelectedListener {
-            override fun onTabSelected(position: Int, wasSelected: Boolean): Boolean {
-                when (position) {
-                    0 -> navController.navigate(R.id.detailOrderFrag)
-                    1 -> {
-                        navController.navigate(R.id.profileFragment)
-                        binding.tvNext.isInvisible
-                        binding.tvBack.isInvisible
-                    }
+        binding.navBtn.setOnTabSelectedListener { position, _ ->
+            when (position) {
+                0 -> navController.navigate(R.id.detailOrderFrag)
+                1 -> {
+                    navController.navigate(R.id.profileFragment)
+                    binding.tvNext.isInvisible
+                    binding.tvBack.isInvisible
                 }
-                return true
             }
-        })
+            true
+        }
 
     }
 }

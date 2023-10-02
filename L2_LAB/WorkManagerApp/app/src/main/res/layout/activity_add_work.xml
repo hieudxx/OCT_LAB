@@ -8,25 +8,32 @@
     android:orientation="vertical"
     tools:context=".view.ActivityAddWork">
 
-
     <EditText
         android:id="@+id/edName"
-        android:layout_margin="10dp"
-        android:hint="Nhập nội dung công việc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:layout_margin="10dp"
-        android:id="@+id/btnTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chọn ngày" />
+        android:layout_margin="10dp"
+        android:hint="Nhập nội dung công việc" />
+
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="" />
 
     <Button
-        android:layout_margin="10dp"
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Lưu" />
 </LinearLayout>
