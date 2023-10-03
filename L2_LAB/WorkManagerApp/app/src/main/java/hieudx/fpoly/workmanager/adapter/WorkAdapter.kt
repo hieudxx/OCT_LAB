@@ -13,7 +13,7 @@ import hieudx.fpoly.workmanager.model.Work
 
 class WorkAdapter(private var list: ArrayList<Work>, private val context: Context) :
     RecyclerView.Adapter<WorkAdapter.ViewHolder>() {
-    val dao = WorkDao(context)
+    private val dao = WorkDao(context)
 
     inner class ViewHolder(val itemBinding: ItemWorkBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {

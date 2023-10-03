@@ -11,9 +11,7 @@ import hieudx.fpoly.workmanager.model.Work
 
 class ActivityListWork : AppCompatActivity() {
     private lateinit var binding: ActivityListWorkBinding
-    private lateinit var list: ArrayList<Work>
     private lateinit var adapter: WorkAdapter
-    private lateinit var dao: WorkDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

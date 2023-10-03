@@ -10,21 +10,23 @@ import android.net.Uri
 
 class WorkProvider() : ContentProvider() {
 
-    val AUTHORITY = "hieudx.fpoly.workmanager"
-    var TABLE_NAME = "work"
-    var uriMatcher: UriMatcher? = null
-    var dao: WorkDao? = null
-    var cursor: Cursor? = null
+    private val AUTHORITY = "hieudx.fpoly.workmanager"
+    private var TABLE_NAME = "work"
+    private var uriMatcher: UriMatcher? = null
+    private var dao: WorkDao? = null
+    private var cursor: Cursor? = null
 
     val CONTENT_URI: Uri = Uri.parse("content://$AUTHORITY/work")
 
     private lateinit var db: SQLiteDatabase
 
     override fun onCreate(): Boolean {
+        val dbHelper = context?.let { DBHelper(it) }
+        db = dbHelper?.readableDatabase!!
 
         uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
         uriMatcher?.addURI(AUTHORITY, TABLE_NAME, 1)
-        uriMatcher?.addURI(AUTHORITY, TABLE_NAME + "/#", 2)
+        uriMatcher?.addURI(AUTHORITY, "$TABLE_NAME/#", 2)
 
         dao = context?.let { WorkDao(it) }
         return true
@@ -39,6 +41,9 @@ class WorkProvider() : ContentProvider() {
     ): Cursor? {
         when (uriMatcher?.match(uri)) {
             1 -> cursor = dao?.getAllProvider(projection, selection, selectionArgs, sortOrder)
+//            1 -> cursor =
+//                db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder)
+
             else -> throw IllegalArgumentException("Unknown URI: $uri")
         }
         cursor?.setNotificationUri(context?.contentResolver, uri)
@@ -46,11 +51,11 @@ class WorkProvider() : ContentProvider() {
     }
 
     override fun getType(uri: Uri): String? {
-//        return when (uriMatcher?.match(uri)) {
-//            WORKS -> "vnd.android.cursor.dir/vnd.$AUTHORITY.$TABLE_NAME"
-//            WORK_ID -> "vnd.android.cursor.item/vnd.$AUTHORITY.$TABLE_NAME"
-//            else -> throw IllegalArgumentException("Unknown URI: $uri")
-//        }
+        return when (uriMatcher?.match(uri)) {
+            1 -> "vnd.android.cursor.dir/$AUTHORITY.work"
+            2 -> "vnd.android.cursor.item/$AUTHORITY.work"
+            else -> throw IllegalArgumentException("Unknown URI: $uri")
+        }
         return null
     }
 
